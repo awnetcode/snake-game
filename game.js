@@ -5,6 +5,11 @@ const boardElement = document.querySelector(".game-board");
 const gridWidth = 30;
 const gridHeight = 20;
 
+let snakeDirection = 'up';
+let gameInterval;
+let gameSpeed = 5000;
+let gameStarted = false;
+
 let snake = [{x:15, y:10}];
 
 
@@ -22,6 +27,7 @@ const drawSnake = () =>{
     })
 };
 
+//creates elements of snake or food
 const createElement = (tag, className) =>{
     const element = document.createElement(tag);
     element.classList.add(className);
@@ -34,3 +40,33 @@ const setElementPosition = (element, position) =>{
 }
 
 drawGame();
+
+const snakeMove = () =>{
+    const snakeHead = snake[0];
+    document.addEventListener('keydown', (event)=>{
+        switch (event.key){
+            case 'ArrowUp':
+                snakeHead.y--;
+                break;
+            case 'ArrowDown':
+                snakeHead.y++;
+                break;
+            case 'ArrowLeft':
+                snakeHead.x--;
+                break;
+            case 'ArrowRight':
+                snakeHead.x++;
+                break;
+        }
+    });
+    
+    gameInterval = setInterval(()=> {
+        drawSnake();
+        snakeMove();
+    }, gameSpeed);
+    snake.unshift(snakeHead); 
+    snake.pop();
+}
+
+console.log(snake);
+//snakeMove();

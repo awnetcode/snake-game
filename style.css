@@ -17,6 +17,8 @@
 body{
     width: 100vw;
     height: 100vh;
+    font-family: 'Tiny5', monospace;
+    font-size: 28px;
 }
 
 #container{
@@ -26,13 +28,18 @@ body{
     align-items: center;
     justify-content: center;
     background: var(--main-background);
+
+    row-gap: 20px;
 }
 
 .game-border{
     background: var(--game-background);
-    padding: 50px 50px 100px 50px;
+    padding: 50px;
     border-radius: 10px;
     border: 5px solid var(--game-border);
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
 }
 
 .game-board{
@@ -42,8 +49,14 @@ body{
     border: 2px solid var(--main-color);
 }
 
+.scores{
+    display: flex;
+    justify-content: space-between;
+}
+
 .snake{
     background: var(--main-color);
+    border-radius: 3px;
 }
 
 .food{
