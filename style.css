@@ -47,6 +47,8 @@ body{
     grid-template-columns: repeat(30, 20px);
     grid-template-rows: repeat(20, 20px);
     border: 2px solid var(--main-color);
+    overflow: hidden;
+    padding: 10px;
 }
 
 .scores{
@@ -60,5 +62,7 @@ body{
 }
 
 .food{
-    background: var(--main-color)
+    background: var(--main-color);
+    transform: rotateZ(45deg);
+    box-shadow: 0 0 5px 2px white;
 }
